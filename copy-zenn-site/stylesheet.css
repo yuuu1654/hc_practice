@@ -107,3 +107,29 @@ header {
   border-radius: 6px;
   border: none;
 }
+
+.article-header_header {
+  /* 上下の間隔を調整 */
+  padding: 3.8rem 0;
+}
+
+.article-header_image {
+  display: flex;
+  justify-content: center;/*横の中央寄せ*/
+  align-items: center;/*縦の中央寄せ*/
+}
+
+.article-header_image-material {
+  height: 82.5px;
+  width: 82.5px;
+}
+
+.article-header_title {
+  display: flex;
+  justify-content: center;/*横の中央寄せ*/
+  align-items: center;/*縦の中央寄せ*/
+  font-size: 30px;
+}
+
+
+
