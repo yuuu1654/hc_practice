@@ -551,7 +551,71 @@ header {
     color: #6e7b85;
     text-decoration: underline;
 }
+
+/* サイドバーエリア */
+.view-sidebar {
+    width: 300px;
 }
 
+.article-sidebar_container {
 
+}
+
+/* 記事詳細エリア */
+.article-sidebar_article-info {
+    background: #fff;
+    border-radius: 12px;
+}
+
+.definition-list__list-container {
+    padding: 4px 20px;
+    margin-top: 0;
+}
+
+.definition-list__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #5c93bb2b;
+    min-height: 46px;
+}
+
+.definition-list__item-last {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 46px;
+}
+
+.definition-list__title-icon {
+    color: #acbcc7;
+}
+
+.definition-list__title-content {
+    color: #6e7b85;
+    font-size: 13.5px;
+}
+
+.definition-list__author-container {
+    display: flex;
+    align-items: center;
+}
+
+.definition-list__icon {
+    margin-right: 5px;
+}
+
+.definition-list__icon-svg {
+    vertical-align: -3px;
+}
+
+.definition-list__icon-image {
+    height: 22px;
+    border-radius: 12px;
+    display: block;
+}
+
+.definition-list__detail-text {
+    font-size: 13px;
+}
 
