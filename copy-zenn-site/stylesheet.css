@@ -1,134 +1,138 @@
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  /* これがないとヘッダーの余白ができてしまう */
-  margin: 0;
-  font-family: "Hiragino Kaku Gothic ProN";
-  background: #EDF2F7;
+    /* これがないとヘッダーの余白ができてしまう */
+    margin: 0;
+    font-family: "Hiragino Kaku Gothic ProN";
+    background: #EDF2F7;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .container {
-  width: 100%;
-  padding: 0 15px;
-  margin: 0 auto;
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
 }
 
 header {
-  display: block;
+    display: block;
 }
 
 .app-header_header {
-  height: 62px;
-  background-color: #FFFFFF;
+    height: 62px;
+    background-color: #FFFFFF;
 }
 
 .container_wide {
-  max-width: 1200px;
-  padding: 0 40px;
-  margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 40px;
+    margin: 0 auto;
 }
 
 .app-header_inner {
-  justify-content: space-between;
-  height: 62px;
-  display: flex;
-  align-items: center; /* 上下中央寄せ */
+    justify-content: space-between;
+    height: 62px;
+    display: flex;
+    align-items: center;
+    /* 上下中央寄せ */
 }
 
 /* header左側リンク */
 .app-header_homeLink {
-  display: flex;
-  align-items: center;
-  height: 62px;
+    display: flex;
+    align-items: center;
+    height: 62px;
 }
 
 .app-header_homeLink-img {
-  height: 33px;
+    height: 33px;
 }
 
 .app-header_homeLink-content {
-  font-size: 25px;
-  font-weight: 900;
-  color: black;
+    font-size: 25px;
+    font-weight: 900;
+    color: black;
 }
 
 /* header右側エリア▼ */
-.fade-in_fadeIn {
-
-}
+.fade-in_fadeIn {}
 
 .app-header_actionsArea {
-  display: flex;
+    display: flex;
 }
 
 .header_icon {
-  color: #6e7b85;
+    color: #6e7b85;
 }
 
 .app-header_searchLink {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .deploy-status_container {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .user-notifications_container {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .user-menu_buttonOpen {
-  background: #FFF;
-  border: none;
+    background: #FFF;
+    border: none;
 }
 
 .profile-icon_image {
-  height: 40px;
-  border-radius: 30px;
+    height: 40px;
+    border-radius: 30px;
 }
 
 .add-new-menu_button {
-  width: 92px;
-  height: 36px;
-  font-weight: 700;
-  font-size: 14.5px;
-  background: #3ea8ff;
-  color: #fff;
-  letter-spacing: .025em;
-  border-radius: 6px;
-  border: none;
+    width: 92px;
+    height: 36px;
+    font-weight: 700;
+    font-size: 14.5px;
+    background: #3ea8ff;
+    color: #fff;
+    letter-spacing: .025em;
+    border-radius: 6px;
+    border: none;
 }
 
 .article-header_header {
-  /* 上下の間隔を調整 */
-  padding: 3.8rem 0;
+    /* 上下の間隔を調整 */
+    padding: 3.8rem 0;
 }
 
 .article-header_image {
-  display: flex;
-  justify-content: center;/*横の中央寄せ*/
-  align-items: center;/*縦の中央寄せ*/
+    display: flex;
+    justify-content: center;
+    /*横の中央寄せ*/
+    align-items: center;
+    /*縦の中央寄せ*/
 }
 
 .article-header_image-material {
-  height: 82.5px;
-  width: 82.5px;
+    height: 82.5px;
+    width: 82.5px;
 }
 
 .article-header_title {
-  display: flex;
-  justify-content: center;/*横の中央寄せ*/
-  align-items: center;/*縦の中央寄せ*/
-  font-size: 30px;
+    display: flex;
+    justify-content: center;
+    /*横の中央寄せ*/
+    align-items: center;
+    /*縦の中央寄せ*/
+    font-size: 30px;
+}
 }
 
 
