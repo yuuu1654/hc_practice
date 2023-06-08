@@ -406,10 +406,6 @@ header {
     border-top: 1px solid #5c93bb2b;
 }
 
-.thread-editor__container {
-
-}
-
 .thread-editor__header {
     display: flex;
     align-items: center;
@@ -421,10 +417,6 @@ header {
     align-items: center;
     margin-left: 20px;
     margin-top: 15px;
-}
-
-.thread-editor__icon-container {
-
 }
 
 .thread-editor__icon-image {
@@ -515,10 +507,6 @@ header {
     vertical-align: 2px;
 }
 
-.thread-editor__button-area {
-
-}
-
 .thread-editor__post-button {
     width: 92px;
     height: 36px;
@@ -555,10 +543,6 @@ header {
 /* サイドバーエリア */
 .view-sidebar {
     width: 300px;
-}
-
-.article-sidebar_container {
-
 }
 
 /* 記事詳細エリア */
