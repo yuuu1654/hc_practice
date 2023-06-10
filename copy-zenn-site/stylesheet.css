@@ -726,3 +726,94 @@ header {
 .article-list__like-svg {
     vertical-align: -2px;
 }
+
+/* footerエリア */
+.app-footer__footer {
+    background: #fff;
+    padding-top: 3rem;
+}
+
+.app-footer__list-area {
+    display: flex;
+}
+
+.app-footer__branding-column {
+    min-width: 220px;
+}
+
+/* footer左側リンク */
+.app-footer__home-link {
+    display: flex; /* Flexboxを使用して中の要素を並べる */
+    align-items: flex-start; /* 上に寄せる */
+    height: 35px;
+}
+
+.app-footer__home-link-img {
+    height: 30px;
+}
+
+.app-footer__home-link-content {
+    font-size: 23px;
+    font-weight: 900;
+    /* font-family: "Inter","BlinkMacSystemFont",Arial,sans-serif; */
+    color: black;
+    margin-top: -3px;
+}
+
+.app-footer__column-content {
+    color: #93a5b1;
+    font-size: 13px;
+    margin: 0.3rem 0;
+    line-height: 1.6;
+}
+
+.app-footer__nav-container {
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem
+}
+
+.app-footer__nav-title {
+    margin-top: 0;
+    font-family: "Inter","BlinkMacSystemFont",Arial,sans-serif;;
+}
+
+.app-footer__nav-list-container {
+    padding-left: 0;
+    margin-right: 1.5rem;
+}
+
+.app-footer__nav-list {
+    list-style: none;
+    margin: 0.6rem 0;
+}
+
+.app-footer__nav-anchor {
+    font-size: 0.88rem;
+    color: #000000d1;
+    cursor: pointer;
+}
+
+.app-footer__event-note::after {
+    content: "";
+    border-bottom: 1px solid #eaf1f7;
+    display: block;
+    margin-top: -35px;
+}
+
+.app-footer__event-popup {
+    background: #eaf1f7;
+    border: 1px solid #eaf1f7;
+    border-radius: 10px;
+    font-size: 11.5px;
+    display: inline-block;
+    padding: 0 0.8rem;
+}
+
+.app-footer__classmethod-anchor {
+    height: 20px;
+    display: block;
+    text-align: center;
+    margin-top: 50px;
+    padding-bottom: 50px;
+}
