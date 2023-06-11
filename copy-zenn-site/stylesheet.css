@@ -640,6 +640,7 @@ header {
     padding: 0 40px;
     max-width: 960px;
     margin: 0 auto; /* 画面幅に合わせてよしなに位置が変わる */
+    padding-bottom: 4rem;
 }
 
 .related-contents__title {
