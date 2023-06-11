@@ -794,6 +794,10 @@ header {
     cursor: pointer;
 }
 
+.app-footer__copyright {
+    text-align: center;
+}
+
 .app-footer__event-note::after {
     content: "";
     border-bottom: 1px solid #eaf1f7;
@@ -814,6 +818,10 @@ header {
     height: 20px;
     display: block;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 45px;
     padding-bottom: 50px;
+}
+
+.app-footer__classmethod-image {
+    height: 25px;
 }
