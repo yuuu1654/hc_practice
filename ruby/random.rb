@@ -28,7 +28,8 @@ division_point = ratio[0]
 first_group = shuffled_members.slice(0, division_point)
 second_group = shuffled_members.slice(division_point, ratio[1])
 
-p first_group
-p second_group
+# アルファベット順に表示されるようにする
+p first_group.sort
+p second_group.sort
 
 
