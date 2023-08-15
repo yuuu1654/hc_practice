@@ -12,7 +12,7 @@ def print_calendar(year, month)
 
     # 月の1日が始まる位置までスペースを表示
     # 月曜日始まりにするために、曜日番号を調整
-    adjusted_wday = first_day.wday == 0 ? 6 : first_day.wday - 1 # 
+    adjusted_wday = first_day.wday == 0 ? 6 : first_day.wday - 1 
     print "   " * adjusted_wday
 
     # 月の各日を表示
