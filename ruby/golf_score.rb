@@ -40,3 +40,38 @@ x.zip(y).each do |par, player|
 end
 
 puts scores.join(",")
+
+
+# 解答例▼
+# number_of_storokes = gets.chomp.split(",").map(&:to_i)
+# scores = gets.chomp.split(",").map(&:to_i)
+# score_mapping = {
+#   3 => {
+#     1 => "ホールインワン",
+#     2 => "バーディ",
+#     3 => "パー",
+#     4 => "ボギー"
+#   },
+#   4 => {
+#     1 => "ホールインワン",
+#     2 => "イーグル",
+#     3 => "バーディ",
+#     4 => "パー",
+#     5 => "ボギー"
+#   },
+#   5 => {
+#     1 => "コンドル",
+#     2 => "アルバトロス",
+#     3 => "イーグル",
+#     4 => "バーディ",
+#     5 => "パー",
+#     6 => "ボギー"
+#   }
+# }
+
+# result = number_of_storokes.map.with_index do |storoke, i|
+#   mapping = score_mapping[storoke]
+#   mapping[scores[i]] || "#{scores[i] - storoke}ボギー"
+# end
+
+# puts result.join(",")
