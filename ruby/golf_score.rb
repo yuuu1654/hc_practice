@@ -1,8 +1,3 @@
-=begin
-    規定打数 : 3 => X => 5
-    打数 : 1 => Y
-    スコア = 規定打数(X) - 打数(Y)
-=end
 
 x = gets.chomp.split(",").map(&:to_i) # 規定打数
 y = gets.chomp.split(",").map(&:to_i) # プレーヤー打数
