@@ -1,8 +1,8 @@
+scores = []
 
+# 改行文字を取り除いた文字列を取得
 x = gets.chomp.split(",").map(&:to_i) # 規定打数
 y = gets.chomp.split(",").map(&:to_i) # プレーヤー打数
-
-scores = []
 
 x.zip(y).each do |par, player|
     difference = player - par
