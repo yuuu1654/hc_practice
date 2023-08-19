@@ -39,7 +39,9 @@ opt.parse!(ARGV)
 now = Date.today
 year = now.year
 # 指定があった月、何も入力がなければ現在の月
-month = options[:month] ||= now.month 
+# `month = options[:month] ||= now.month`の場合、`options[:month]`がnilまたはfalseの場合に、`options[:month]`の値も更新されてしまう
+# `month = options[:month] || now.month`の場合、同様の場合に、`options[:month]`の値は更新されず、新しい値が`month`変数のみに代入される
+month = options[:month] || now.month 
 
 # 月のバリデーション
 if month < 1 || 12 < month
