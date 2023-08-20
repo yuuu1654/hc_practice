@@ -101,13 +101,18 @@ end
 suica = Suica.new
 vending_machine = VendingMachine.new
 
+# 自動販売機の在庫補充
 vending_machine.add_stock("Monster", 10)
-
+# Suicaの現在のチャージ残高
 puts suica.get_current_balance
+# Monsterの在庫取得
 puts vending_machine.get_stock("Monster")
 
+# Monsterを購入
 vending_machine.purchase("Monster", suica)
+# Suicaの現在のチャージ残高
 puts suica.get_current_balance
+# 自動販売機の売上取得
 puts vending_machine.get_current_sales
-
+# 購入できるジュースリスト
 puts vending_machine.available_drinks(suica)
