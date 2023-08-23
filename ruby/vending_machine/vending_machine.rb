@@ -3,31 +3,24 @@ require_relative "juice"
 
 class VendingMachine
     def initialize
-        @pepsi = [Juice.new("Pepsi", 150)] * 5
-        @monster = [Juice.new("Monster", 230)] * 5
-        @irohasu = [Juice.new("Irohasu", 120)] * 5
+        @stock = {
+            "Pepsi" => { juice: Juice.new("Pepsi", 150), count: 5 },
+            "Monster" => { juice: Juice.new("Monster", 230), count: 5 },
+            "Irohasu" => { juice: Juice.new("Irohasu", 120), count: 5 }
+        }
         @sales = 0
     end
 
     # 在庫を取得
     def get_stock(name)
-        case name
-        when "Pepsi"
-            @pepsi.count
-        when "Monster"
-            @monster.count
-        when "Irohasu"
-            @irohasu.count
-        else
-            0
-        end
+        @stock[name] ? @stock[name][:count] : 0
     end
 
     # ジュースを購入できるかを判定
     def can_purchase?(name, suica)
-        juice = get_juice(name)
-        # 残高がジュースの値段以上で、ジュースの在庫が存在する時
-        suica.get_current_balance >= juice.price && get_stock(name) > 0
+        item = @stock[name]
+        return false unless item
+        suica.get_current_balance >= item[:juice].price && item[:count] > 0
     end
 
     def purchase(name, suica)
@@ -45,18 +38,15 @@ class VendingMachine
 
     # 購入可能なドリンクのリストを取得
     def available_drinks(suica)
-        ["Pepsi", "Monster", "Irohasu"].select { |name| can_purchase?(name, suica) }
+        @stock.keys.select { |name| can_purchase?(name, suica) }
     end
 
     # 在庫を補充
     def add_stock(name, count)
-        case name
-        when "Pepsi"
-            @pepsi += [Juice.new("Pepsi", 150)] * count
-        when "Monster"
-            @monster += [Juice.new("Monster", 230)] * count
-        when "Irohasu"
-            @irohasu += [Juice.new("Irohasu", 120)] * count
+        if @stock[name]
+            @stock[name][:count] += count
+        else
+            raise "補充できないジュースです"
         end
     end
 
@@ -67,27 +57,15 @@ class VendingMachine
 
     # 指定したジュースインスタンスを返すヘルパーメソッド
     def get_juice(name)
-        case name
-        when "Pepsi"
-            Juice.new("Pepsi", 150)
-        when "Monster"
-            Juice.new("Monster", 230)
-        when "Irohasu"
-            Juice.new("Irohasu", 120)
-        end
+        @stock[name] ? @stock[name][:juice] : nil
     end
 
     private
 
     # 在庫を減らす
     def reduce_stock(name)
-        case name
-        when "Pepsi"
-            @pepsi.pop
-        when "Monster"
-            @monster.pop
-        when "Irohasu"
-            @irohasu.pop
+        if @stock[name] && @stock[name][:count] > 0
+            @stock[name][:count] -= 1
         end
     end
 
