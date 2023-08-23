@@ -17,6 +17,10 @@ class Suica
         @balance -= amount
     end
 
+    def add_charge(amount)
+        charge(amount)
+    end
+
     private
 
     # 100円未満の金額(amount)をチャージしようとしたら例外エラー
@@ -27,3 +31,11 @@ class Suica
         @balance += amount
     end
 end
+
+suica = Suica.new
+
+# 100円以上のチャージ(成功)
+puts suica.add_charge(100)
+
+# 100円未満のチャージ(エラー)
+puts suica.add_charge(50)
