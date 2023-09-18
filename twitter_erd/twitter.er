@@ -1,0 +1,86 @@
+# 仕様
+# ・ユーザーはtwitterにemailでサインアップできる(->emailはnot null)
+# ・ユーザーは140文字のツイートができる
+# ・ユーザーは、ツイートにいいねができる
+# ・ユーザーは、ツイートをリツイートできる
+# ・ユーザーは、他のユーザーをフォローできる
+# ・ユーザーは、他のユーザーにDMを送信できる
+# ・ユーザーは、いいね・フォローをされると通知を受け取ることができる
+# ・ユーザーは、ツイートをブックマークできる
+
+[users] {bgcolor: "#87CEFA"}
+    *id {label: "bigint, not null"}
+    name {label: "varchar, not null, uniq"}
+    email {label: "varchar, not null, uniq"}
+    phone_number {label: "varchar, not null, uniq"}
+    nickname {label: "varchar, not null"}
+    introduction {label: "varchar, not null"}
+    place {label: "varchar, not null"}
+    website {label: "varchar, not null"}
+    birthday {label: "datetime, not null"}
+    profile_image {label: "varchar, not null"}
+    avatar_image {label: "varchar, not null"}
+    created_at {label: "datetime, not null"}
+    updated_at_at {label: "datetime, not null"}
+
+[tweets] {bgcolor: "#7FFFD4"}
+    *id {label: "bigint, not null"}
+    user_id {label: "bigint, not null, FK(users)"}
+    content {label: "varchar(140), not null"}
+    created_at {label: "datetime, not null"}
+    updated_at {label: "datetime, not null"}
+
+[likes] {bgcolor: "#FFC0CB"}
+    *id {label: "bigint, not null"}
+    user_id {label: "bigint, not null, FK(users)"}
+    tweet_id {label: "bigint, not null, FK(tweets)"}
+    created_at {label: "datetime, not null"}
+
+[retweets] {bgcolor: "#9370DB"}
+    *id {label: "bigint, not null"}
+    user_id {label: "bigint, not null, FK(users)"}
+    tweet_id {label: "bigint, not null, FK(tweets)"}
+    created_at {label: "datetime, not null"}
+
+[follows] {bgcolor: "#FFFACD"}
+    # フォロワー&フォローされる人の組み合わせはただ一つのみ
+    *id {label: "bigint, not null"}
+    follower_id {label: "bigint, not null, FK(users)"}
+    followed_id {label: "bigint, not null, FK(users)"}
+    created_at {label: "datetime, not null"}
+
+[messages] {bgcolor: "#DDA0DD"}
+    # DMは同じ人に何度でもも送れる(違う内容で)
+    *id {label: "bigint, not null"}
+    sender_id {label: "bigint, not null, FK(users)"}
+    receiver_id {label: "bigint, not null, FK(users)"}
+    content {label: "bigint, not null"}
+    created_at {label: "datetime, not null"}
+
+[notifications] {bgcolor: "#FFE4C4"}
+    *id {label: "bigint, not null"}
+    user_id {label: "bigint, not null, FK(users)"}
+    content {label: "varchar, not null"} # 通知内容を保存
+    created_at {label: "datetime, not null"}
+
+[bookmarks] {bgcolor: "#4682B4"}
+    *id {label: "bigint, not null"}
+    user_id {label: "bigint, not null FK(users)"}
+    tweet_id {label: "bigint, not null FK(tweets)"}
+    created_at {label: "datetime, not null"}
+
+# Cardinality    Syntax
+# 0 or 1         ?
+# exactly 1      1
+# 0 or more      *
+# 1 or more      +
+users 1--* tweets
+users 1--* likes
+users 1--* retweets
+users 1--* follows
+users 1--* messages
+users 1--* notifications
+users 1--* bookmarks
+tweets 1--* likes
+tweets 1--* retweets
+tweets 1--* bookmarks
