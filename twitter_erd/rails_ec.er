@@ -1,0 +1,5 @@
+[orders]
+  *id {label: "bigint, not null"}
+  name {label: "varchar, not null, uniq"}
+  email {label: "varchar, not null, not null, uniq"}
+  
