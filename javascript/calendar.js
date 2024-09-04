@@ -42,7 +42,7 @@ const isEmpty = (obj) => Object.keys(obj).length === 0
 
 const main = () => {
   const options = parseArgs(process.argv)
-  // optionsが、数字でない(hogeとか)、1~12以外の数字
+  // optionsが、数字でない(hogeとか)、1~12以外の数字の場合はエラーを出す
   if (isNaN(options.month) && !isEmpty(options) || options.month < 1 || 12 < options.month) {
     console.error("-mオプションの数字は1~12までやろが！(猿でも分か...)")
     return
