@@ -3,9 +3,8 @@ const onClickAdd = () => {
   /**
    * 追加ボタン押されたら、入力値を変数に移してフォーム内は空にする
    * 必要な要素 (li, span, 編集button, 削除button)を作成
-   * 表示する文字、クラス名などを
-   * created-todoのidを持つdivに、上記要素をulにくっつける
-   * 削除ボタンが押されたら
+   * 表示する文字、クラス名などを追加
+   * created-todoのidを持つulに、上記要素をくっつける
    */
   const inputText = document.getElementById("input-text").value;
   if (inputText === "") {
