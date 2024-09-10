@@ -1,3 +1,11 @@
+let allTasks = 0
+let completedTasks = 0
+
+const updateTaskCounts = () => {
+  document.getElementById("all-tasks").innerText = allTasks
+  document.getElementById("completed-tasks").innerText = completedTasks
+  document.getElementById("incomplete-tasks").innerText = allTasks - completedTasks
+}
 
 const onClickAdd = () => {
   /**
@@ -19,6 +27,19 @@ const onClickAdd = () => {
   const checkbox = document.createElement("input")
   checkbox.type = "checkbox"
   checkbox.className = "form-check-input me-2"
+  checkbox.addEventListener("change", (e) => {
+    /**
+     * チェックボタンがチェックされたら、完了済みに+1して、未完了から-1する
+     * チェックボタンが空にだったら、完了済みを-1して、未完了を+1する
+     * 未完了の値は、[全体 - 完了済み] なので、完了済みをいじるだけで済む
+     */
+    if (e.target.checked) {
+      completedTasks++;
+    } else {
+      completedTasks--
+    }
+    updateTaskCounts()
+  })
 
   const span = document.createElement("span");
   span.innerText = inputText;
@@ -65,6 +86,8 @@ const onClickAdd = () => {
   // 削除ボタンのクリックイベント
   deleteButton.addEventListener("click", (e) => {
     deleteButton.closest("li").remove();
+    allTasks--
+    updateTaskCounts()
   })
 
   li.appendChild(checkbox)
@@ -74,6 +97,14 @@ const onClickAdd = () => {
 
   const ul = document.getElementById("created-todo");
   ul.appendChild(li)
+  allTasks++
+  updateTaskCounts()
 }
 
+// 初期ロード
+document.addEventListener("DOMContentLoaded", () => {
+  updateTaskCounts();
+})
+
+// タスク追加時
 document.getElementById("add-todo").addEventListener("click", onClickAdd)
