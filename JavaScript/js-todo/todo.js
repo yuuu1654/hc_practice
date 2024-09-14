@@ -63,6 +63,7 @@ const onClickAdd = () => {
     const currentElement = editButton.previousElementSibling
     if (editButton.innerText === "編集") {
       editButton.innerText = "保存"
+      editButton.className = "btn bg-primary-subtle ms-2 me-1"
       const input = document.createElement("input")
       input.type = "text"
       input.value = currentElement.innerText
@@ -72,6 +73,7 @@ const onClickAdd = () => {
       input.focus(); // 入力フィールドにフォーカスを当てる
     } else {
       editButton.innerText = "編集"
+      editButton.className = "btn bg-primary text-white ms-2 me-1"
       const span = document.createElement("span")
       span.innerText = currentElement.value
       span.className = currentElement.className
