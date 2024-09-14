@@ -70,8 +70,12 @@ const onClickAdd = () => {
       input.className = currentElement.className
       input.style.width = currentElement.style.width
       currentElement.replaceWith(input)
-      input.focus(); // 入力フィールドにフォーカスを当てる
+      input.focus(); // すぐ入力できるようフォーカスを当てる
     } else {
+      if (currentElement.value === "") {
+        confirm("TODOを入力してください")
+        return
+      }
       editButton.innerText = "編集"
       editButton.className = "btn bg-primary text-white ms-2 me-1"
       const span = document.createElement("span")
@@ -87,6 +91,7 @@ const onClickAdd = () => {
   deleteButton.innerText = "削除"
   // 削除ボタンのクリックイベント
   deleteButton.addEventListener("click", (e) => {
+    confirm("本当に削除してもよろしいですかご主人様？")
     deleteButton.closest("li").remove();
     allTasks--
     updateTaskCounts()
