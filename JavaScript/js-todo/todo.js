@@ -1,10 +1,10 @@
-let allTasks = 0
 let completedTasks = 0
+let incompleteTasks = 0
 
 const updateTaskCounts = () => {
-  document.getElementById("all-tasks").innerText = allTasks
+  document.getElementById("all-tasks").innerText = completedTasks + incompleteTasks
   document.getElementById("completed-tasks").innerText = completedTasks
-  document.getElementById("incomplete-tasks").innerText = allTasks - completedTasks
+  document.getElementById("incomplete-tasks").innerText = incompleteTasks
 }
 
 const onClickAdd = () => {
@@ -31,12 +31,13 @@ const onClickAdd = () => {
     /**
      * チェックボタンがチェックされたら、完了済みに+1して、未完了から-1する
      * チェックボタンが空にだったら、完了済みを-1して、未完了を+1する
-     * 未完了の値は、[全体 - 完了済み] なので、完了済みをいじるだけで済む
      */
     if (e.target.checked) {
-      completedTasks++;
+      completedTasks++
+      incompleteTasks--
     } else {
       completedTasks--
+      incompleteTasks++
     }
     updateTaskCounts()
   })
@@ -56,6 +57,7 @@ const onClickAdd = () => {
      *   spanタグを入力可能なinputに置換する
      *   spanの中に書いてあった文字をinputに移す (inputは、innerTextではなくvalueを使う)
      * 保存ボタン押したら編集ボタンに表示を切り替える
+     *   入力値が空ならメッセージを表示して更新させない
      *   保存ボタン(editButton)の直前のinputを取得
      *   新しいspanタグを作る
      *   inputに書いた文字を新しいspanに移し替える
@@ -93,7 +95,12 @@ const onClickAdd = () => {
   deleteButton.addEventListener("click", (e) => {
     confirm("本当に削除してもよろしいですかご主人様？")
     deleteButton.closest("li").remove();
-    allTasks--
+    // checkboxがチェックされてるかで、完了タスクか未完了タスクを-1するか判定
+    if (checkbox.checked) {
+      completedTasks--
+    } else {
+      incompleteTasks--
+    }
     updateTaskCounts()
   })
 
@@ -104,7 +111,7 @@ const onClickAdd = () => {
 
   const ul = document.getElementById("created-todo");
   ul.appendChild(li)
-  allTasks++
+  incompleteTasks++
   updateTaskCounts()
 }
 
