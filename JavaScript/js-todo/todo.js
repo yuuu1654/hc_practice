@@ -22,7 +22,7 @@ const onClickAdd = () => {
   document.getElementById("input-text").value = ""; 
   const li = document.createElement("li");
   li.style = "list-style: none;"
-  li.className = "d-flex align-items-center bg-info py-2"
+  li.className = "d-flex align-items-center bg-info-subtle py-2 px-1 border rounded my-3"
 
   const checkbox = document.createElement("input")
   checkbox.type = "checkbox"
