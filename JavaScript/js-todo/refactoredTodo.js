@@ -108,18 +108,12 @@ const createDeleteButton = () => {
 }
 
 const onClickAdd = () => {
-  /**
-   * 追加ボタン押されたら、入力値を変数に移してフォーム内は空にする
-   * 必要な要素 (li, span, 編集button, 削除button)を作成
-   * 表示する文字、クラス名などを追加
-   * created-todoのidを持つulに、上記要素をくっつける
-   */
   const inputText = document.getElementById("input-text").value;
   if (inputText === "") {
     alert("TODOを入力してください")
     return
   }
-  document.getElementById("input-text").value = ""; 
+  document.getElementById("input-text").value = ""; // 作成ボタン押したら入力フォームは空にする
   const li = createTodoItem(inputText)
   const ul = document.getElementById("created-todo");
   ul.appendChild(li)
