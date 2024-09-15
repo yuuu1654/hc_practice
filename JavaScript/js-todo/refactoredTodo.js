@@ -15,10 +15,7 @@ const createTodoItem = (inputText) => {
   const span = createSpan(inputText);
   const editButton = createEditButton()
   const deleteButton = createDeleteButton(checkbox)
-  li.appendChild(checkbox)
-  li.appendChild(span)
-  li.appendChild(editButton)
-  li.appendChild(deleteButton)
+  li.append(checkbox, span, editButton, deleteButton)
   return li
 }
 
