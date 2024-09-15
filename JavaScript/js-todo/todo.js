@@ -16,7 +16,7 @@ const onClickAdd = () => {
    */
   const inputText = document.getElementById("input-text").value;
   if (inputText === "") {
-    confirm("TODOを入力してください")
+    alert("TODOを入力してください")
     return
   }
   document.getElementById("input-text").value = ""; 
@@ -75,7 +75,7 @@ const onClickAdd = () => {
       input.focus(); // すぐ入力できるようフォーカスを当てる
     } else {
       if (currentElement.value === "") {
-        confirm("TODOを入力してください")
+        alert("TODOを入力してください")
         return
       }
       editButton.innerText = "編集"
