@@ -98,15 +98,12 @@ const createDeleteButton = (checkbox) => {
   deleteButton.innerText = "削除"
   // 削除ボタンのクリックイベント
   deleteButton.addEventListener("click", (e) => {
-    confirm("本当に削除してもよろしいですかご主人様？")
-    deleteButton.closest("li").remove();
-    // checkboxがチェックされてるかで、完了タスクか未完了タスクを-1するか判定
-    if (checkbox.checked) {
-      completedTasks--
-    } else {
-      incompleteTasks--
+    if (confirm("本当に削除してもよろしいですかご主人様？")) {
+      deleteButton.closest("li").remove();
+      // checkboxがチェックされてるかで、完了タスクか未完了タスクを-1するか判定
+      e.target.checked ? completedTasks-- : incompleteTasks--
+      updateTaskCounts()
     }
-    updateTaskCounts()
   })
   return deleteButton
 }
