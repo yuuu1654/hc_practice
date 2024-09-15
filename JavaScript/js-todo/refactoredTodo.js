@@ -53,7 +53,7 @@ const createEditButton = () => {
   editButton.className = "btn btn-primary ms-2 me-1"
   editButton.innerText = "編集"
   // 編集ボタンのクリックイベント
-  editButton.addEventListener("click", (e) => {
+  editButton.addEventListener("click", () => {
     /**
      * 編集ボタンをクリックしたら保存ボタンに切り替わる
      *   spanタグを入力可能なinputに置換する
