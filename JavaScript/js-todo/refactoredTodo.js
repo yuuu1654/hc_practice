@@ -14,7 +14,7 @@ const createTodoItem = (inputText) => {
   const checkbox = createCheckbox();
   const span = createSpan(inputText);
   const editButton = createEditButton()
-  const deleteButton = createDeleteButton()
+  const deleteButton = createDeleteButton(checkbox)
   li.append(checkbox, span, editButton, deleteButton)
   return li
 }
@@ -92,15 +92,15 @@ const createEditButton = () => {
   return editButton
 }
 
-const createDeleteButton = () => {
+const createDeleteButton = (checkbox) => {
   const deleteButton = document.createElement("button")
   deleteButton.className = "btn btn-danger"
   deleteButton.innerText = "削除"
-  deleteButton.addEventListener("click", (e) => {
+  deleteButton.addEventListener("click", () => {
     if (confirm("本当に削除してもよろしいですかご主人様？")) {
       deleteButton.closest("li").remove();
       // checkboxがチェックされてるかで、完了タスクか未完了タスクを-1するか判定
-      e.target.checked ? completedTasks-- : incompleteTasks--
+      checkbox.checked ? completedTasks-- : incompleteTasks--
       updateTaskCounts()
     }
   })
