@@ -1,13 +1,15 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
-import { ChakraProvider } from '@chakra-ui/react'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App.tsx";
+import "./index.css";
+import { ChakraProvider } from "@chakra-ui/react";
+import theme from "./theme/theme.ts";
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
+      {/* themeが反映されない... */}
       <App />
     </ChakraProvider>
-  </StrictMode>,
-)
+  </StrictMode>
+);
